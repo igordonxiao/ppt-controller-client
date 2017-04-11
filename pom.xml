@@ -8,13 +8,13 @@
     <artifactId>pptclient</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!--<repositories>-->
-    <!--<repository>-->
-    <!--<id>aliyun</id>-->
-    <!--<name>aliyun Central Repo</name>-->
-    <!--<url>http://maven.aliyun.com/nexus/content/groups/public</url>-->
-    <!--</repository>-->
-    <!--</repositories>-->
+    <repositories>
+        <repository>
+            <id>aliyun</id>
+            <name>aliyun Central Repo</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
 
     <properties>
         <kotlin.version>1.1.1</kotlin.version>

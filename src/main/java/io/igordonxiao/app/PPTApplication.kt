@@ -4,6 +4,7 @@ import okhttp3.*
 import okio.ByteString
 import java.awt.GridLayout
 import java.awt.Robot
+import java.awt.event.InputEvent
 import java.awt.event.KeyEvent
 import java.text.SimpleDateFormat
 import java.util.*
@@ -15,7 +16,7 @@ import javax.swing.JTextArea
 
 
 /**
- * Created by igord on 2017/4/1.
+ * Created by gordon on 2017/4/1.
  */
 val url = "ws://pptcontroller.herokuapp.com/ws"
 val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
@@ -39,12 +40,11 @@ fun main(args: Array<String>) {
         setLocationRelativeTo(null)
         isVisible = true
     }
-
     with(Robot()) {
         OkHttpClient.Builder()
                 .readTimeout(3000, TimeUnit.SECONDS)
                 .writeTimeout(3000, TimeUnit.SECONDS)
-                .connectTimeout(3000, TimeUnit.SECONDS)
+                .connectTimeout(30000, TimeUnit.SECONDS)
                 .build().newWebSocket(Request.Builder().url(url).build(), object : WebSocketListener() {
             override fun onOpen(webSocket: WebSocket, response: Response) {
                 webSocket.send("client: subscription")
